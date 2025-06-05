@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drzewo genealogiczne Jagiellonów</title>
+  <style>
+    body {
+    background-image: url("img/background.jpg") ;
+    background-size: cover;        
+    background-position: center;  
+    background-repeat: no-repeat;   
+    height: 100vh;   
+    font-family: Arial, sans-serif;
+    scale: 1;
+    }
+
+   .title {
+    text-align:center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(0, 0, 0);
+  
+    }
+
+    .tree {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .node {
+      text-align: center;
+      position: relative;
+      margin: 0 20px;
+    }
+    .node img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+    .node .name {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .desc {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #0074D9;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.desc:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
+
+    
+    .details {
+      display: none;
+      background-color: #f9f9f9;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .children {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .line-down {
+      width: 2px;
+      height: 20px;
+      background: black;
+      margin: 0 auto;
+    }
+    .line-horizontal {
+      position: relative;
+      height: 2px;
+      background: black;
+      top: -1px;
+    }
+    .line-horizontal:before, .line-horizontal:after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      width: 2px;
+      height: 10px;
+      background: black;
+    }
+    .line-horizontal:before {
+      left: 0;
+    }
+    .line-horizontal:after {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="tree">
+  <div class="node">
+    <img src="img/wladyslaw-jagiello.jpg" alt="Władysław II Jagiełło">
+    <div class="name">Władysław II Jagiełło</div>
+    <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+    <div class="details">
+      <b>Śmierć:</b> 1434<br>
+      <b>Panowanie:</b> Król Polski (1386–1434), Wielki Książę Litewski (1377–1401)<br>
+      <b>Najważniejszy czyn:</b> Unia w Krewie<br>
+      <b>Ciekawostka:</b> Skrajnie religijny – unikał kobiet, by przypodobać się Bogu
+    </div>
+
+    <div class="line-down"></div>
+    <div class="children">
+      <!-- Synowie Jagiełły -->
+      <div class="node">
+        <img src="img/wladyslaw-warenczyk.jpg" alt="Władysław III Warneńczyk">
+        <div class="name">Władysław III Warneńczyk</div>
+        <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+        <div class="details">
+          <b>Śmierć:</b> 1444<br>
+          <b>Panowanie:</b> Król Polski (1434–1444), Król Węgier (1440–1444)<br>
+          <b>Najważniejszy czyn:</b> Udział w bitwie pod warną w 1444r w tym jego śmierć<br>
+          <b>Ciekawostka:</b> Zginął pod Warną, stąd przydomek wareńczyk
+        </div>
+      </div>
+
+      <div class="node">
+        <img src="img/kazimierz-jagiellonczyk.jpg" alt="Kazimierz IV Jagiellończyk">
+        <div class="name">Kazimierz IV Jagiellończyk</div>
+        <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+        <div class="details">
+          <b>Śmierć:</b> 1492<br>
+          <b>Panowanie:</b> Król Polski (1447–1492), Książę Litewski (1440–1492)<br>
+          <b>Najważniejszy czyn:</b> Pokonanie Zakonu Krzyżackiego, pokój toruński<br>
+          <b>Ciekawostka:</b> Ojciec św. Kazimierza
+        </div>
+
+        <!-- Linie i dzieci Kazimierza IV -->
+        <div class="line-down"></div>
+        <div class="children">
+          <div class="node">
+            <img src="img/Jan-olbracht.jpg" alt="Jan Olbracht">
+            <div class="name">Jan I Olbracht</div>
+            <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+            <div class="details">
+              <b>Śmierć:</b> 1501<br>
+              <b>Panowanie:</b> Król Polski (1492–1501)<br>
+              <b>Najważniejszy czyn:</b> Statut Piotrkowski<br>
+              <b>Ciekawostka:</b> „Za króla Olbrachta wyginęła szlachta”
+            </div>
+          </div>
+          <div class="node">
+            <img src="img/alleksander-jagiellonczyk.jpg" alt="Aleksander Jagiellończyk">
+            <div class="name">Aleksander Jagiellończyk</div>
+            <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+            <div class="details">
+              <b>Śmierć:</b> 1506<br>
+              <b>Panowanie:</b> Król Polski (1501–1506), Książę Litewski (1492–1501)<br>
+              <b>Najważniejszy czyn:</b> Przywilej Mielnicki<br>
+              <b>Ciekawostka:</b> Ograniczył władzę królewską na rzecz senatu
+            </div>
+          </div>
+          <div class="node">
+            <img src="img/Zygmunt-stary.jpg" alt="Zygmunt I Stary">
+            <div class="name">Zygmunt I Stary</div>
+            <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+            <div class="details">
+              <b>Śmierć:</b> 1548<br>
+              <b>Panowanie:</b> Król Polski i Książę Litewski (1506–1548)<br>
+              <b>Najważniejszy czyn:</b> Mecenat renesansu<br>
+              <b>Ciekawostka:</b> Uwielbiał Stańczyka
+            </div>
+
+            <!-- Dzieci Zygmunta I -->
+            <div class="line-down"></div>
+            <div class="children">
+              <div class="node">
+                <img src="img/zygmunt-august.jpg" alt="Zygmunt II August">
+                <div class="name">Zygmunt II August</div>
+                <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+                <div class="details">
+                  <b>Śmierć:</b> 1572<br>
+                  <b>Panowanie:</b> Król Polski (1548–1572)<br>
+                  <b>Najważniejszy czyn:</b> Unia lubelska (1569)<br>
+                  <b>Ciekawostka:</b> Kolekcjonował zbroje i armaty
+                </div>
+              </div>
+              <div class="node">
+                <img src="img/anna-jagielonka.jpg" alt="Anna Jagiellonka">
+                <div class="name">Anna Jagiellonka</div>
+                <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+                <div class="details">
+                  <b>Śmierć:</b> 1596<br>
+                  <b>Panowanie:</b> Królowa Polski (1575–1596)<br>
+                  <b>Najważniejszy czyn:</b> Małżeństwo ze Stefanem Batorym<br>
+                  <b>Ciekawostka:</b> Wpływ na elekcję Zygmunta III Wazy
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="node">
+            <img src="img/św-kazimierz.jpg" alt="Św. Kazimierz Jagiellończyk">
+            <div class="name">Św. Kazimierz</div>
+            <div class="desc" onclick="toggle(this)">Zobacz opis</div>
+            <div class="details">
+              <b>Śmierć:</b> 1484<br>
+              <b>Panowanie:</b> —<br>
+              <b>Najważniejszy czyn:</b> Święty od 1604<br>
+              <b>Ciekawostka:</b> Ascetyczne życie, pomoc biednym
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="title">
+<h1>Drzewo Genealogiczne Jagiellonów</h1>
+</div>
+<script>
+  function toggle(el) {
+    const detail = el.nextElementSibling;
+    detail.style.display = detail.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</body>
+</html>
